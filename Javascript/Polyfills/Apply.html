@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let obj = {
+    name: "Arush",
+    getDetails: function (city) {
+      return this.name + " " + city;
+    },
+  };
+  obj2 = {
+    name: "Shubham",
+  };
+  //In prototype always use args/rest operator becouse we dont know how much arguments user will provide
+  Function.prototype.myApply = function (ob, args) {
+    let blank;
+    ob.blank = this;
+    return ob.blank(...args);
+  };
+  console.log(obj.getDetails.myApply(obj2, ["Bhopal", "indore"]));
+</script>

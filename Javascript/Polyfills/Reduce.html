@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Array.prototype.myReduce = function (cb, initialVal) {
+  //   let accumulator = initialVal;
+  //   for (let i = 0; i < this.length; i++) {
+  //     accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];
+  //   }
+  //   return accumulato         r;
+  // };
+  // let arr = [1, 2, 3, 4, 5, 6];
+  // let sum = arr.myReduce((acc, curr) => {
+  //   return acc + curr;
+  // }, 0);
+  // console.log(sum);
+  Array.prototype.MyReduce = function (cb, initialValue) {
+    let accumulator = initialValue;
+    for (i = 0; i < this.length; i++) {
+      accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];
+    }
+    return accumulator;
+  };
+  let arr1 = [1, 2, 3, 4, 5];
+  let sum = arr1.MyReduce((acc, curr) => {
+    acc = acc + curr;
+    return acc;
+  }, 0);
+  console.log(sum);
+</script>
